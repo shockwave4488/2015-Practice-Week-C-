@@ -13,9 +13,22 @@ namespace _2015_Pre_build_week_project.SubSystems
     /// </summary>
     public class Drive
     {
+        MotorRamping left;
+        MotorRamping right;
+
+        double Speed;
+        double Turn;
+
+        public void Update()
+        {
+            left.update()
+            right.update();
+        }
+
         public Drive()
         {
-            
+            left = new MotorRamping();
+            right = new MotorRamping();
         }
     }
 }
