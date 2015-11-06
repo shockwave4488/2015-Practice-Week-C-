@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="MotorRamping.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SubSystems\Drive.cs" />
     <Compile Include="TheKoolKidsKlass.cs" />

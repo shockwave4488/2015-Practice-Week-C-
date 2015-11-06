@@ -15,7 +15,7 @@ namespace _2015_Pre_build_week_project
         //Examples: Drive_PID_GyroCorrect | Joystick_Rumble_Scaling | Elevator_Setpoint_Low
         //Makes things easier to find, so long as one knows what system is being worked on.
         //Create a new region if you have a new category, try to keep them organized by system.
-
+        
         #region PWM Channels
 
         #endregion
@@ -43,6 +43,9 @@ namespace _2015_Pre_build_week_project
 
         #region SpeedThresholds
         public const double speedThresh = 9.5;
+		
+        #region Drive Variables
+        public const double maxChange = 0.2;
         #endregion
     }
 }
