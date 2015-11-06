@@ -35,5 +35,14 @@ namespace _2015_Pre_build_week_project
         #region Joystick USB Channels
 
         #endregion
+
+        #region VoltageThresholds
+        public const double lowThresh = 8.0;
+        public const double highThresh = 10.0;
+        #endregion
+
+        #region SpeedThresholds
+        public const double speedThresh = 9.5;
+        #endregion
     }
 }

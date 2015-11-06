@@ -13,9 +13,12 @@ namespace _2015_Pre_build_week_project.SubSystems
     /// </summary>
     public class Drive
     {
+        Shifting Shift;
         public Drive()
         {
-            
+            Shift = new Shifting(true);
+            Shift.LowGear = false;
+              
         }
     }
 }

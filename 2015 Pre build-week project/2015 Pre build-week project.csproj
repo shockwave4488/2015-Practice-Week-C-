@@ -69,6 +69,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SubSystems\Drive.cs" />
+    <Compile Include="TheKoolKidsKlass.cs" />
     <Compile Include="_2015_Pre_build_week_project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
