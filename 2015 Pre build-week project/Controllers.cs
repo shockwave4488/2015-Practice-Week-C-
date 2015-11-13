@@ -9,6 +9,20 @@ namespace _2015_Pre_build_week_project.SubSystems
 {
     class Controllers
     {
+        private Joystick xbox;
+
+        public Controllers()
+        {
+            xbox = new Joystick(0);
+        }
+        public double GetLeft()
+        {
+            return xbox.GetRawAxis(1);
+        }
+        public double GetRight()
+        {
+            return xbox.GetRawAxis(5);
+        }
         public void Vibrate()
         {
             if (ControllerPower.GetInputVoltage() < Constants.VibrateVoltLimit)
