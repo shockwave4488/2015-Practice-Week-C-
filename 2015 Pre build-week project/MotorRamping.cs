@@ -31,6 +31,7 @@ namespace _2015_Pre_build_week_project
 
         public void update(double speed)
         {
+            double MaxSecondaryChange = 1.0 / 50.0 * RampTime;
 
             if (speed > Primary + Constants.maxChange)
                 Primary += Constants.maxChange;
@@ -38,11 +39,18 @@ namespace _2015_Pre_build_week_project
                 Primary -= Constants.maxChange;
             else Primary = speed;
 
-            if (speed > Secondary + (1.0 / 50.0 * RampTime))
-                Secondary += (1.0 / 50.0 * RampTime);
-            else if (speed < Secondary - (1.0 / 50.0 * RampTime))
-                Secondary -= (1.0 / 50.0 * RampTime);
+            if (speed > Secondary + MaxSecondaryChange)
+                Secondary += MaxSecondaryChange;
+            else if (speed < Secondary - MaxSecondaryChange)
+                Secondary -= MaxSecondaryChange;
             else Secondary = speed;
+
+            if (Primary <= 0 && Secondary >= 0)
+                Secondary++;
+            else if (Primary >= 0 && Secondary <= 0)
+                Secondary--;
+            else
         }
+
     }
 }
