@@ -27,7 +27,7 @@ namespace _2015_Pre_build_week_project.SubSystems
 
         public void Update()
         {
-            left.update()
+            left.update();
             right.update();
         }
 

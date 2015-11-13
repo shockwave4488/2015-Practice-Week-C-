@@ -43,7 +43,8 @@ namespace _2015_Pre_build_week_project
 
         #region SpeedThresholds
         public const double speedThresh = 9.5;
-		
+        #endregion
+
         #region Drive Variables
         public const double maxChange = 0.2;
         #endregion
