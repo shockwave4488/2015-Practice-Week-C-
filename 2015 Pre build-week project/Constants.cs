@@ -39,6 +39,7 @@ namespace _2015_Pre_build_week_project
         #region VoltageThresholds
         public const double lowThresh = 8.0;
         public const double highThresh = 10.0;
+        public const float VibrateVoltLimit = 8.0; 
         #endregion
 
         #region SpeedThresholds
