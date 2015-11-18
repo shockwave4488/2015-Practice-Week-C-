@@ -31,6 +31,10 @@ namespace _2015_Pre_build_week_project.SubSystems
         {
             return xbox.GetRawButton(Constants.XboxB);
         }
+        public bool RollerPowerButton()
+        {
+            return xbox.GetRawButton(Constants.XboxX);
+        }
         public void Vibrate()
         {
             if (ControllerPower.GetInputVoltage() < Constants.VibrateVoltLimit)
