@@ -43,6 +43,13 @@ namespace _2015_Pre_build_week_project
 
         #region Joystick USB Channels and other control variables
         public const float VibrateVoltLimit = 8;
+        public const int ControllerPort = 0;
+        public const int XboxA = 0;
+        public const int XboxB = 1;
+        public const int XboxX = 2;
+        public const int XboxY = 3;
+        public const int XboxLB = 4;
+        public const int XboxRB = 5;
         #endregion
 
         #region Drive Variables
