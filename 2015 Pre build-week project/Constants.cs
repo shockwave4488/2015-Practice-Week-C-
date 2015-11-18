@@ -15,39 +15,57 @@ namespace _2015_Pre_build_week_project
         //Examples: Drive_PID_GyroCorrect | Joystick_Rumble_Scaling | Elevator_Setpoint_Low
         //Makes things easier to find, so long as one knows what system is being worked on.
         //Create a new region if you have a new category, try to keep them organized by system.
-        
-        #region PWM Channels
 
+        #region PWM Channels
+        public const int Drive_L1Channel = 0;
+        public const int Drive_L2Channel = 1;
+        public const int Drive_L3Channel = 2;
+        public const int Drive_R1Channel = 3;
+        public const int Drive_R2Channel = 4;
+        public const int Drive_R3Channel = 5;
         #endregion
 
         #region Digital IO Channels
-
+        public const int Drive_LEncoderAChannel = 0;
+        public const int Drive_LEncoderBChannel = 1;
+        public const int Drive_REncoderAChannel = 2;
+        public const int Drive_REncoderBChannel = 3;
         #endregion
 
         #region Solenoid Channels
-
+        public const int Drive_LShiftChannel = 0;
+        public const int Drive_RShiftChannel = 1;
         #endregion
 
         #region Analogue IO Channels
-
+        public const int Drive_GyroChannel = 0;
         #endregion
 
-        #region Joystick USB Channels
-
-        #endregion
-
-        #region VoltageThresholds
-        public const double lowThresh = 8.0;
-        public const double highThresh = 10.0;
-        public const float VibrateVoltLimit = 8; 
-        #endregion
-
-        #region SpeedThresholds
-        public const double speedThresh = 9.5;
+        #region Joystick USB Channels and other control variables
+        public const float VibrateVoltLimit = 8;
         #endregion
 
         #region Drive Variables
         public const double maxChange = 0.2;
+        public const double Drive_MaxPowerChange = 0.2;
+        public const double Drive_SpeedDeadzone = 0.2;
+        public const double Drive_TurnDeadzone = 0.05;
+        public const double Drive_Sensitivity = 0.75;
+
+        #region Auto-Shifting
+        public const double speedThresh = 9.5;
+        public const double lowThresh = 8.0;
+        public const int Drive_Shifting_Hysterisis = 500;
+        public const double Drive_Shifting_TurnThreshold = 0.5;
+        public const double Drive_Shifting_ThrottleAccelThreshold = 0.1;
+        public const double Drive_Shifting_WheelAccelThreshold = 1;
+        public const double Drive_Shifting_LowSpeedThreshold = 8;
+        public const double Drive_Shifting_LowAccelThreshold = -1;
+        #endregion
+        #endregion
+
+        #region flow control variables
+        public const int Teleop_dT = 20;
         #endregion
     }
 }
