@@ -13,7 +13,7 @@ namespace _2015_Pre_build_week_project.SubSystems
 
         public Controllers()
         {
-            xbox = new Joystick(0);
+            xbox = new Joystick(Constants.ControllerPort);
         }
         public double GetLeft()
         {
@@ -22,6 +22,14 @@ namespace _2015_Pre_build_week_project.SubSystems
         public double GetRight()
         {
             return xbox.GetRawAxis(5);
+        }
+        public bool ConveyerPowerButton()
+        {
+            return xbox.GetRawButton(Constants.XboxA);
+        }
+        public bool GearShiftButton()
+        {
+            return xbox.GetRawButton(Constants.XboxB);
         }
         public void Vibrate()
         {
