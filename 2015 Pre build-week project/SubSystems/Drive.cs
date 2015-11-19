@@ -139,5 +139,30 @@ namespace _2015_Pre_build_week_project.SubSystems
             L3.ForcePower(0);
             R3.ForcePower(0);
         }
+
+        /// <summary>
+        /// Reset the encoders associated with the drive train
+        /// </summary>
+        /// <param name="resetLeft">Reset the Left Encoder</param>
+        /// <param name="resetRight">Reset the Right Encoder</param>
+        public void ResetEncoders(bool resetLeft, bool resetRight)
+        {
+            if (resetLeft)
+            {
+                LEncode.Reset();
+            }
+            if (resetRight)
+            {
+                REncode.Reset();
+            }
+        }
+
+        /// <summary>
+        /// Reset both the Left and Right drive encoders
+        /// </summary>
+        public void ResetEncoders()
+        {
+            ResetEncoders(true, true);
+        }
     }
 }

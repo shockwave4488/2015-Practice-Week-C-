@@ -66,6 +66,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autonomous\AutonCommand.cs" />
+    <Compile Include="Autonomous\Commands\DriveForwardCommand.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Controllers.cs" />
