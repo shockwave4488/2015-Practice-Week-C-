@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WPILib;
 using _2015_Pre_build_week_project.Team_Code;
+using _2015_Pre_build_week_project.Team_Code.Utility;
 
 namespace _2015_Pre_build_week_project.SubSystems
 {
@@ -15,18 +16,21 @@ namespace _2015_Pre_build_week_project.SubSystems
         //L3 and R3 should be in COAST mode
         RampingTalon L1, L2, L3, R1, R2, R3;
         Solenoid LShift, RShift;
+
         Encoder LEncode, REncode;
+        InputFilter LSpeedFilter, RSpeedFilter;
+
         Gyro gyro;
 
         /// <summary>
         /// Speed of the Left Encoder
         /// </summary>
-        public double LSpeed => LEncode.GetRate();
+        public double LSpeed => LSpeedFilter.GetValue();
 
         /// <summary>
         /// Speed of the Right Encoder
         /// </summary>
-        public double RSpeed => REncode.GetRate();
+        public double RSpeed => RSpeedFilter.GetValue();
 
         /// <summary>
         /// Linear, Forward/Back, Translational Speed of the Robot
@@ -72,6 +76,9 @@ namespace _2015_Pre_build_week_project.SubSystems
 
             LEncode = new Encoder(Constants.Drive_LEncoderAChannel, Constants.Drive_LEncoderBChannel);
             REncode = new Encoder(Constants.Drive_REncoderAChannel, Constants.Drive_REncoderBChannel);
+
+            LSpeedFilter = new InputFilter(0);
+            RSpeedFilter = new InputFilter(0);
 
             gyro = new Gyro(Constants.Drive_GyroChannel);
             #endregion
@@ -119,6 +126,9 @@ namespace _2015_Pre_build_week_project.SubSystems
             R1.Set(R);
             R2.Set(R);
             R3.Set(R);
+
+            LSpeedFilter.Update(LEncode.GetRate());
+            RSpeedFilter.Update(REncode.GetRate());
         }
 
         /// <summary>
@@ -128,6 +138,31 @@ namespace _2015_Pre_build_week_project.SubSystems
         {
             L3.ForcePower(0);
             R3.ForcePower(0);
+        }
+
+        /// <summary>
+        /// Reset the encoders associated with the drive train
+        /// </summary>
+        /// <param name="resetLeft">Reset the Left Encoder</param>
+        /// <param name="resetRight">Reset the Right Encoder</param>
+        public void ResetEncoders(bool resetLeft, bool resetRight)
+        {
+            if (resetLeft)
+            {
+                LEncode.Reset();
+            }
+            if (resetRight)
+            {
+                REncode.Reset();
+            }
+        }
+
+        /// <summary>
+        /// Reset both the Left and Right drive encoders
+        /// </summary>
+        public void ResetEncoders()
+        {
+            ResetEncoders(true, true);
         }
     }
 }
