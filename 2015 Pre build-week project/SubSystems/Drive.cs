@@ -14,7 +14,7 @@ namespace _2015_Pre_build_week_project.SubSystems
     public class Drive
     {
         //L3 and R3 should be in COAST mode
-        RampingTalon L1, L2, L3, R1, R2, R3;
+        RampMotor<Talon> L1, L2, L3, R1, R2, R3;
         Solenoid LShift, RShift;
 
         Encoder LEncode, REncode;
@@ -42,6 +42,11 @@ namespace _2015_Pre_build_week_project.SubSystems
         /// </summary>
         public double TurnSpeed => (LSpeed - RSpeed) / 2.0;
 
+        public double LDist => LEncode.GetDistance();
+        public double RDist => REncode.GetDistance();
+        public double LinearDist => (LDist + RDist) / 2;
+        public double TurnDist => (LDist - RDist) / 2;
+
         private double shiftingMotorValue;
 
         /// <summary>
@@ -64,12 +69,12 @@ namespace _2015_Pre_build_week_project.SubSystems
         public Drive()
         {
             #region Instantiating
-            L1 = new RampingTalon(Constants.Drive_L1Channel);
-            L2 = new RampingTalon(Constants.Drive_L2Channel);
-            L3 = new RampingTalon(Constants.Drive_L3Channel);
-            R1 = new RampingTalon(Constants.Drive_R1Channel);
-            R2 = new RampingTalon(Constants.Drive_R2Channel);
-            R3 = new RampingTalon(Constants.Drive_R3Channel);
+            L1 = new RampMotor<Talon>(Constants.Drive_L1Channel);
+            L2 = new RampMotor<Talon>(Constants.Drive_L2Channel);
+            L3 = new RampMotor<Talon>(Constants.Drive_L3Channel);
+            R1 = new RampMotor<Talon>(Constants.Drive_R1Channel);
+            R2 = new RampMotor<Talon>(Constants.Drive_R2Channel);
+            R3 = new RampMotor<Talon>(Constants.Drive_R3Channel);
 
             LShift = new Solenoid(Constants.Drive_LShiftChannel);
             RShift = new Solenoid(Constants.Drive_RShiftChannel);
@@ -104,6 +109,27 @@ namespace _2015_Pre_build_week_project.SubSystems
 
             //Secondary Motors are set to the same max acceleration as the primary motors by default, until we get these numbers tuned.
             shiftingMotorValue = Constants.Drive_MaxPowerChange;
+        }
+
+        /// <summary>
+        /// Updates the drive, setting the motors to teh power specified without changing the shifter values
+        /// </summary>
+        /// <param name="L">Left power</param>
+        /// <param name="R">Right power</param>
+        public void Update(double L, double R)
+        {
+            L3.MaxAccel = LShift.Get() ? shiftingMotorValue : Constants.Drive_MaxPowerChange;
+            R3.MaxAccel = RShift.Get() ? shiftingMotorValue : Constants.Drive_MaxPowerChange;
+
+            L1.Set(L);
+            L2.Set(L);
+            L3.Set(L);
+            R1.Set(R);
+            R2.Set(R);
+            R3.Set(R);
+
+            LSpeedFilter.Update(LEncode.GetRate());
+            RSpeedFilter.Update(REncode.GetRate());
         }
 
         /// <summary>

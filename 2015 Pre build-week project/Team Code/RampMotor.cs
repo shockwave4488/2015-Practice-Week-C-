@@ -11,8 +11,10 @@ namespace _2015_Pre_build_week_project.Team_Code
     /// <summary>
     /// A subclass of a motor controller intended to allow controlled change in power, for safety or voltage regulation means.
     /// </summary>
-    public class RampingTalon : Talon //Add a new class if somebody needs to ramp a different kind of motor controller because PWM.Set(double) doesn't exist
+    /// <typeparam name="T">Type of motor controller</typeparam>
+    public class RampMotor<T> : ISpeedController where T : ISpeedController
     {
+        ISpeedController controller;
         private double power;
 
         /// <summary>
@@ -34,19 +36,28 @@ namespace _2015_Pre_build_week_project.Team_Code
         }
 
         /// <summary>
+        /// inverts the direction of the motor rotation.
+        /// </summary>
+        public bool Inverted
+        {
+            get { return controller.Inverted; }
+            set { controller.Inverted = value; }
+        }
+
+        /// <summary>
         /// Opens a new RampingMotor 
         /// </summary>
         /// <param name="channel">The PWM channel that the motor is attached to. 0-9 are on-board, 10-19 are on the MXP port</param>
-        public RampingTalon(int channel) : base(channel)
+        public RampMotor(int port)
         {
-            MaxChange = 1;
+            controller = (ISpeedController)Activator.CreateInstance(typeof(T), port);
         }
 
         /// <summary>
         /// Sets the value to the motor, within the change limitations
         /// </summary>
         /// <param name="value">value to set to or approach</param>
-        public override void Set(double value)
+        public void Set(double value)
         {
             //The motor is DECELLERATING if |value| < |power| OR value and power are not both positive or both negative
             //Likewise, the motor is ACCELERATING if |value| > |power| AND value and power are both negative or both positive
@@ -60,7 +71,7 @@ namespace _2015_Pre_build_week_project.Team_Code
             else //If the motor wants to go to a power within the change limitations, set the power to the value.
                 power = value;
 
-            base.Set(value);
+            controller.Set(value);
         }
 
         /// <summary>
@@ -70,6 +81,50 @@ namespace _2015_Pre_build_week_project.Team_Code
         public void ForcePower(double value)
         {
             power = value;
+        }
+
+        /// <summary>
+        /// returns the last value of this controller
+        /// </summary>
+        /// <returns></returns>
+        public double Get()
+        {
+            return controller.Get();
+        }
+
+        /// <summary>
+        /// sets the output value of the controller
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="syncGroup"></param>
+        public void Set(double value, byte syncGroup)
+        {
+            controller.Set(value, syncGroup);
+        }
+
+        /// <summary>
+        /// Disable the speed controller
+        /// </summary>
+        public void Disable()
+        {
+            controller.Disable();
+        }
+
+        /// <summary>
+        /// Set the output to the value calculated by the PIDController
+        /// </summary>
+        /// <param name="value"></param>
+        public void PidWrite(double value)
+        {
+            controller.PidWrite(value);
+        }
+
+        /// <summary>
+        /// Performs application-defined tasksassociated with freeing, releasing, or resetting unmanaged resources
+        /// </summary>
+        public void Dispose()
+        {
+            controller.Dispose();
         }
     }
 }

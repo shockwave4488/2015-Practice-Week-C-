@@ -67,7 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autonomous\AutonCommand.cs" />
+    <Compile Include="Autonomous\Commands\DriveBaseCommand.cs" />
     <Compile Include="Autonomous\Commands\DriveForwardCommand.cs" />
+    <Compile Include="Autonomous\Commands\DriveTurnCommand.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Controllers.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Team Code\Drive Code\DriveHelper.cs" />
     <Compile Include="Team Code\RampingTalon.cs" />
     <Compile Include="Team Code\Utility\InputFilter.cs" />
+    <Compile Include="Team Code\Utility\PID.cs" />
     <Compile Include="_2015_Pre_build_week_project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
