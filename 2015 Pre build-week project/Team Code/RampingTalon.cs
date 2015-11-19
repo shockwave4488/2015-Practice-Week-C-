@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WPILib;
+using WPILib.Interfaces;
 
 namespace _2015_Pre_build_week_project.Team_Code
 {
@@ -35,7 +36,7 @@ namespace _2015_Pre_build_week_project.Team_Code
         /// <summary>
         /// Opens a new RampingMotor 
         /// </summary>
-        /// <param name="channel"></param>
+        /// <param name="channel">The PWM channel that the motor is attached to. 0-9 are on-board, 10-19 are on the MXP port</param>
         public RampingTalon(int channel) : base(channel)
         {
             MaxChange = 1;
