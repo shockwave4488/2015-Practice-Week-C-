@@ -10,7 +10,7 @@ using _2015_Pre_build_week_project.Team_Code.Utility;
 
 namespace _2015_Pre_build_week_project.Autonomous.Commands
 {
-    public class DriveTurnCommand : AutonCommand
+    public class DriveTurnCommand : DriveBaseCommand
     {
         Drive drive;
         double speed;
@@ -19,7 +19,7 @@ namespace _2015_Pre_build_week_project.Autonomous.Commands
 
         public double TimeOut { get; set; }
 
-        public DriveTurnCommand(double speed, double degrees)
+        public DriveTurnCommand(double _speed, double _degrees, double _timeOut) : base(, _speed, _TimeOut)
         {
             
         }

@@ -75,11 +75,12 @@
     <Compile Include="Controllers.cs" />
     <Compile Include="SubSystems\Drive.cs" />
     <Compile Include="Team Code\Drive Code\DriveHelper.cs" />
-    <Compile Include="Team Code\RampingTalon.cs" />
+    <Compile Include="Team Code\RampMotor.cs" />
     <Compile Include="Team Code\Utility\InputFilter.cs" />
     <Compile Include="Team Code\Utility\PID.cs" />
-    <Compile Include="_2015_Pre_build_week_project.cs" />
+    <Compile Include="BuildWeek2015.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Team Code\Utility\Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libHALAthena_shared.so" />
