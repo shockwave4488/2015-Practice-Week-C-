@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autonomous\AutonCommand.cs" />
+    <Compile Include="Autonomous\AutonScheduler.cs" />
     <Compile Include="Autonomous\Commands\DriveBaseCommand.cs" />
     <Compile Include="Autonomous\Commands\DriveForwardCommand.cs" />
     <Compile Include="Autonomous\Commands\DriveTurnCommand.cs" />

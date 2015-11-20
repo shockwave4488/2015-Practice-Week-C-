@@ -83,6 +83,8 @@ namespace _2015_Pre_build_week_project
         #region Autonomous Variables
         public const double Auton_Move_P = 0.1;
         public const double Auton_Move_D = 0;
+        public const double Auton_Correction_P = 0.05;
+        public const double Auton_Correction_D = 0;
         #endregion
     }
 }

@@ -15,9 +15,6 @@ namespace _2015_Pre_build_week_project.Team_Code.Utility
         private double accumulatedIntegral;
         private double currentPointFeedback;
 
-        public bool Enabled { get; set; }
-        public string Name { get; set; }
-
         public double Max { get; set; }
         public double Min { get; set; }
         public double setpoint { get; set; }
