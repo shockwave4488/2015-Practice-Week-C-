@@ -12,9 +12,9 @@ namespace _2015_Pre_build_week_project
      * functions corresponding to each mode, as described in the IterativeRobot
      * documentation. 
      */
-    public class _2015_Pre_build_week_project : IterativeRobot
-    { 
-
+    public class BuildWeek2015 : IterativeRobot
+    {
+        public static Drive drive;
         /**
          * This function is run when the robot is first started up and should be
          * used for any initialization code.

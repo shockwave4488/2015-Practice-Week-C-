@@ -8,6 +8,7 @@ namespace _2015_Pre_build_week_project.Autonomous
 {
     public interface AutonCommand
     {
-        bool Execute(); //returns true if complete?
+        bool Execute(); //returns true if complete
+        double TimeOut { get; set; } //Seconds until the command will kill itself
     }
 }
