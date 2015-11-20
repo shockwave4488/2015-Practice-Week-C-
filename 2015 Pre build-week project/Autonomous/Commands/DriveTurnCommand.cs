@@ -12,21 +12,19 @@ namespace _2015_Pre_build_week_project.Autonomous.Commands
 {
     public class DriveTurnCommand : DriveBaseCommand
     {
-        Drive drive;
-        double speed;
-        double distance;
         PID turnPID;
 
         public double TimeOut { get; set; }
 
-        public DriveTurnCommand(double _speed, double _degrees, double _timeOut) : base(, _speed, _TimeOut)
+        public DriveTurnCommand(double _speed, double _degrees, double _timeOut) 
+            : base(Utility.ToRadians(_degrees) * Constants.Robot_Width / 2, _speed, _timeOut)
         {
-            
+            turnPID = new PID(Constants.Auton_Turn_P, 0, Constants.Auton_Turn_D, -0.2, 0.2);
         }
 
-        bool AutonCommand.Execute()
+        public override bool Execute()
         {
-            return false;
+            return base.Execute();
         }
     }
 }

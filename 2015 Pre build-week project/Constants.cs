@@ -69,10 +69,20 @@ namespace _2015_Pre_build_week_project
         public const double Drive_Shifting_LowSpeedThreshold = 8;
         public const double Drive_Shifting_LowAccelThreshold = -1;
         #endregion
+        //end Drive Region
         #endregion
 
         #region flow control variables
         public const int Teleop_dT = 20;
+        #endregion
+
+        #region Misc. Variables
+        public const double Robot_Width = 28;
+        #endregion
+
+        #region Autonomous Variables
+        public const double Auton_Move_P = 0.1;
+        public const double Auton_Move_D = 0;
         #endregion
     }
 }

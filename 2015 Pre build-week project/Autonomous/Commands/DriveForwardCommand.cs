@@ -11,22 +11,13 @@ namespace _2015_Pre_build_week_project.Autonomous.Commands
 {
     public class DriveForwardCommand : AutonCommand
     {
-        Drive drive;
-        double distance;
-        double speed;
         PID straightCorrection;
 
         public double TimeOut { get; set; }
 
         public DriveForwardCommand(double _distance, double _speed, double timeOut)
         {
-            distance = _distance;
-            speed = _speed;
-            TimeOut = timeOut;
 
-            drive.ResetEncoders();
-            drive.Update(0, 0, false);
-            straightCorrection = new PID(0.1, 0, 0, -0.1, 0.1);
         }
 
         bool AutonCommand.Execute()
