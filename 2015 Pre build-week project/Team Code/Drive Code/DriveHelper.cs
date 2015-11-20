@@ -25,9 +25,9 @@ namespace _2015_Pre_build_week_project.Team_Code.Drive_Code
 
         public bool HighGear => isHighGear;
 
-        public DriveHelper()
+        public DriveHelper(ref Drive drive_)
         {
-            drive = new Drive();
+            drive = drive_;
             oldTurn = quickStopAccumulator = oldSpeed = oldWheel = negInertiaAccumulator = lastShift = 0;
             throttleAccel = new InputFilter(0);
             wheelAccel = new InputFilter(0);

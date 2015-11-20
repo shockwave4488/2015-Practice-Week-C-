@@ -155,6 +155,8 @@ namespace _2015_Pre_build_week_project.SubSystems
 
             LSpeedFilter.Update(LEncode.GetRate());
             RSpeedFilter.Update(REncode.GetRate());
+
+            Console.WriteLine("Left Encoder: {0}\nRight Encoder: {1}", LEncode.GetDistance(), REncode.GetDistance());
         }
 
         /// <summary>

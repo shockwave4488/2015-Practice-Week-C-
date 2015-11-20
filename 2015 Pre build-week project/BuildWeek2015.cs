@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using WPILib;
 using _2015_Pre_build_week_project.SubSystems;
+using _2015_Pre_build_week_project.Team_Code.Drive_Code;
 
 namespace _2015_Pre_build_week_project
 {
@@ -15,13 +16,17 @@ namespace _2015_Pre_build_week_project
     public class BuildWeek2015 : IterativeRobot
     {
         public static Drive drive;
+        public static Controllers primary;
+        private DriveHelper TeleopDrive;
         /**
          * This function is run when the robot is first started up and should be
          * used for any initialization code.
          */
         public override void RobotInit()
         {
-
+            drive = new Drive();
+            primary = new Controllers();
+            TeleopDrive = new DriveHelper(ref drive);
         }
 
         /**
@@ -37,7 +42,7 @@ namespace _2015_Pre_build_week_project
          */
         public override void TeleopPeriodic()
         {
-
+            TeleopDrive.Drive(primary.GetSpeed, primary.GetTurn, false, primary.ShiftLow, primary.ShiftHigh, false);
         }
 
         /**
