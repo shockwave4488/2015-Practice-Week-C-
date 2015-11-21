@@ -23,6 +23,7 @@ namespace _2015_Pre_build_week_project
         public const int Drive_R1Channel = 3;
         public const int Drive_R2Channel = 4;
         public const int Drive_R3Channel = 5;
+        public const int Conveyer_Channel = 6;
         #endregion
 
         #region Digital IO Channels
@@ -30,6 +31,9 @@ namespace _2015_Pre_build_week_project
         public const int Drive_LEncoderBChannel = 1;
         public const int Drive_REncoderAChannel = 2;
         public const int Drive_REncoderBChannel = 3;
+        public const int Conveyer_BeambrakeInChannel = 4;
+        public const int Conveyer_BeambrakeOutChannel = 5;
+
         #endregion
 
         #region Solenoid Channels
