@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using WPILib;
 using _2015_Pre_build_week_project.Team_Code;
 using _2015_Pre_build_week_project.Team_Code.Utility;
@@ -25,12 +22,12 @@ namespace _2015_Pre_build_week_project.SubSystems
         /// <summary>
         /// Speed of the Left Encoder
         /// </summary>
-        public double LSpeed => LSpeedFilter.GetValue();
+        public double LSpeed => LSpeedFilter.GetValue() * Constants.Drive_Encoder_ClicksToDistance / 12;
 
         /// <summary>
         /// Speed of the Right Encoder
         /// </summary>
-        public double RSpeed => RSpeedFilter.GetValue();
+        public double RSpeed => RSpeedFilter.GetValue() * Constants.Drive_Encoder_ClicksToDistance / 12;
 
         /// <summary>
         /// Linear, Forward/Back, Translational Speed of the Robot
@@ -42,8 +39,8 @@ namespace _2015_Pre_build_week_project.SubSystems
         /// </summary>
         public double TurnSpeed => (LSpeed - RSpeed) / 2.0;
 
-        public double LDist => LEncode.GetDistance();
-        public double RDist => REncode.GetDistance();
+        public double LDist => LEncode.GetDistance() * Constants.Drive_Encoder_ClicksToDistance;
+        public double RDist => REncode.GetDistance() * Constants.Drive_Encoder_ClicksToDistance;
         public double LinearDist => (LDist + RDist) / 2;
         public double TurnDist => (LDist - RDist) / 2;
 
