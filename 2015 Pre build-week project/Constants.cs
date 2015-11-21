@@ -17,19 +17,23 @@ namespace _2015_Pre_build_week_project
         //Create a new region if you have a new category, try to keep them organized by system.
 
         #region PWM Channels
-        public const int Drive_L1Channel = 1;
-        public const int Drive_L2Channel = 3;
-        public const int Drive_L3Channel = 2; //Coast
-        public const int Drive_R1Channel = 4;
-        public const int Drive_R2Channel = 6;
-        public const int Drive_R3Channel = 7; //Coast
+        public const int Drive_L1Channel = 0;
+        public const int Drive_L2Channel = 1;
+        public const int Drive_L3Channel = 2;
+        public const int Drive_R1Channel = 3;
+        public const int Drive_R2Channel = 4;
+        public const int Drive_R3Channel = 5;
+        public const int Conveyer_Channel = 6;
         #endregion
 
         #region Digital IO Channels
         public const int Drive_LEncoderAChannel = 0;
         public const int Drive_LEncoderBChannel = 1;
-        public const int Drive_REncoderAChannel = 8;
-        public const int Drive_REncoderBChannel = 9;
+        public const int Drive_REncoderAChannel = 2;
+        public const int Drive_REncoderBChannel = 3;
+        public const int Conveyer_BeambrakeInChannel = 4;
+        public const int Conveyer_BeambrakeOutChannel = 5;
+
         #endregion
 
         #region Solenoid Channels
@@ -56,7 +60,7 @@ namespace _2015_Pre_build_week_project
         public const double maxChange = 0.2;
         public const double Drive_MaxPowerChange = 0.2;
         public const double Drive_SpeedDeadzone = 0.2;
-        public const double Drive_TurnDeadzone = 0.2;
+        public const double Drive_TurnDeadzone = 0.05;
         public const double Drive_Sensitivity = 0.75;
 
         #region Auto-Shifting
@@ -69,24 +73,16 @@ namespace _2015_Pre_build_week_project
         public const double Drive_Shifting_LowSpeedThreshold = 8;
         public const double Drive_Shifting_LowAccelThreshold = -1;
         #endregion
+<<<<<<< HEAD
 
         public const double Drive_Encoder_ClicksToDistance = Math.PI * 2.0 / 125.0;
         //end Drive Region
+=======
+>>>>>>> refs/remotes/origin/My-Fork
         #endregion
 
         #region flow control variables
         public const int Teleop_dT = 20;
-        #endregion
-
-        #region Misc. Variables
-        public const double Robot_Width = 28;
-        #endregion
-
-        #region Autonomous Variables
-        public const double Auton_Move_P = 0.1;
-        public const double Auton_Move_D = 0;
-        public const double Auton_Correction_P = 0.05;
-        public const double Auton_Correction_D = 0;
         #endregion
     }
 }
