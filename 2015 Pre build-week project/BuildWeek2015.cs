@@ -63,7 +63,7 @@ namespace _2015_Pre_build_week_project
          */
         public override void AutonomousPeriodic()
         {
-
+            scheduler.Run();
         }
 
         /**
@@ -71,7 +71,15 @@ namespace _2015_Pre_build_week_project
          */
         public override void TeleopPeriodic()
         {
+            SmartDashboard.PutNumber("Goats", conveyer.balls);
+            roller.ConveyerFull = conveyer.balls >= 6;
+            roller.Reverse = primary.ReverseIntake;
+            roller.Intake = primary.IntakeButton;
+            conveyer.Output = primary.ConveyerPowerButton;
+
             TeleopDrive.Drive(primary.GetSpeed, primary.GetTurn, false, primary.ShiftLow, primary.ShiftHigh, false);
+            conveyer.Update();
+            roller.Update();
         }
 
         /**

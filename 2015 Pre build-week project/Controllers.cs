@@ -19,7 +19,9 @@ namespace _2015_Pre_build_week_project.SubSystems
         public double GetTurn => xbox.GetRawAxis(4);
         public double GetSpeed => xbox.GetRawAxis(1);
 
-        public bool ConveyerPowerButton => xbox.GetRawButton(Constants.XboxA);
+        public bool ConveyerPowerButton => xbox.GetRawButton(Constants.XboxX);
+        public bool IntakeButton => xbox.GetRawButton(Constants.XboxA);
+        public bool ReverseIntake => xbox.GetRawButton(Constants.XboxB);
 
         public bool ShiftLow => xbox.GetRawButton(Constants.XboxLB);
         public bool ShiftHigh => xbox.GetRawButton(Constants.XboxRB);

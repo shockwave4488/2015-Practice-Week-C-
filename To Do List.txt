@@ -1,7 +1,7 @@
 [DONE] Make a Roller on/off command
 [DONE] Just realized - we need to have output as a property, and update take no arguments. I'll explain later.
-Need to add Dashboard Communication (speed, autonomous routine, autoshift, etc) to program
+[PRETTY MUCH DONE] Need to add Dashboard Communication (speed, autonomous routine, autoshift, etc) to program
 [DONE] Need to fill in roller
 [DONE?] Need Issac to look at and learn Toggle class
-Implementation in BuildWeek2015 class - Autonomous Periodic, Teleop Periodic, etc.
+[DONE] Implementation in BuildWeek2015 class - Autonomous Periodic, Teleop Periodic, etc.
 [DONE] need roller toggle button for controller
