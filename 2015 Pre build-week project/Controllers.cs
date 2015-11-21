@@ -15,31 +15,6 @@ namespace _2015_Pre_build_week_project.SubSystems
         {
             xbox = new Joystick(Constants.ControllerPort);
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        public double GetLeft()
-        {
-            return xbox.GetRawAxis(1);
-        }
-        public double GetRight()
-        {
-            return xbox.GetRawAxis(5);
-        }
-        public bool ConveyerPowerButton()
-        {
-            return xbox.GetRawButton(Constants.XboxA);
-        }
-        public bool GearShiftButton()
-        {
-            return xbox.GetRawButton(Constants.XboxB);
-        }
-        public bool RollerPowerButton()
-        {
-            return xbox.GetRawButton(Constants.XboxX);
-        }
-=======
->>>>>>> refs/remotes/origin/My-Fork
 
         public double GetTurn => xbox.GetRawAxis(4);
         public double GetSpeed => xbox.GetRawAxis(1);
@@ -49,10 +24,6 @@ namespace _2015_Pre_build_week_project.SubSystems
         public bool ShiftLow => xbox.GetRawButton(Constants.XboxLB);
         public bool ShiftHigh => xbox.GetRawButton(Constants.XboxRB);
         
-<<<<<<< HEAD
-=======
->>>>>>> refs/remotes/origin/master
->>>>>>> refs/remotes/origin/My-Fork
         public void Vibrate()
         {
             if (ControllerPower.GetInputVoltage() < Constants.VibrateVoltLimit)
