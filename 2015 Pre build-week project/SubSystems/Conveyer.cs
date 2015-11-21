@@ -7,7 +7,7 @@ using WPILib;
 
 namespace _2015_Pre_build_week_project.SubSystems
 {
-    class Conveyer
+    public class Conveyer
     {
         private Talon conveyor;
         private DigitalInput beamBrakeOut;

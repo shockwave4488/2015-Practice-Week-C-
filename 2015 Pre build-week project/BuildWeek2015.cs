@@ -17,6 +17,8 @@ namespace _2015_Pre_build_week_project
     {
         public static Drive drive;
         public static Controllers primary;
+        public static Conveyer conveyer;
+
         private DriveHelper TeleopDrive;
         /**
          * This function is run when the robot is first started up and should be

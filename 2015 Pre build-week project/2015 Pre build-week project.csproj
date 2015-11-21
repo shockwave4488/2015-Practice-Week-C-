@@ -71,6 +71,7 @@
     <Compile Include="Autonomous\Commands\DriveBaseCommand.cs" />
     <Compile Include="Autonomous\Commands\DriveForwardCommand.cs" />
     <Compile Include="Autonomous\Commands\DriveTurnCommand.cs" />
+    <Compile Include="Autonomous\Commands\OutputSetCommand.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Controllers.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Team Code\Utility\PID.cs" />
     <Compile Include="BuildWeek2015.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Team Code\Utility\Toggle.cs" />
     <Compile Include="Team Code\Utility\Utility.cs" />
   </ItemGroup>
   <ItemGroup>

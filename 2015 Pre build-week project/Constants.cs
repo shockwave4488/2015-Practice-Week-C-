@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _2015_Pre_build_week_project
 {
@@ -74,14 +70,21 @@ namespace _2015_Pre_build_week_project
         public const double Drive_Shifting_LowAccelThreshold = -1;
         #endregion
 
-
+        public const double Auton_Move_P = 0.05;
+        public const double Auton_Move_D = 0;
+        public const double Auton_Correction_P = 0.01;
+        public const double Auton_Correction_D = 0;
         public const double Drive_Encoder_ClicksToDistance = Math.PI * 2.0 / 125.0;
+        public const double Robot_Width = 28;
         //end Drive Region
         #endregion
-
-
+            
         #region flow control variables
         public const int Teleop_dT = 20;
+        #endregion
+
+        #region Conveyor and Roller Variables
+        public const double Conveyer_speed = 0.5;
         #endregion
     }
 }

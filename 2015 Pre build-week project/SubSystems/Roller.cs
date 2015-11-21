@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2015_Pre_build_week_project.SubSystems
 {
-    class Roller
+    public class Roller
     {
     }
 }
