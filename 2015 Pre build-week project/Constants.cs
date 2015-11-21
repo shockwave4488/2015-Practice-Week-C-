@@ -69,6 +69,8 @@ namespace _2015_Pre_build_week_project
         public const double Drive_Shifting_LowSpeedThreshold = 8;
         public const double Drive_Shifting_LowAccelThreshold = -1;
         #endregion
+
+        public const double Drive_Encoder_ClicksToDistance = Math.PI * 2.0 / 125.0;
         //end Drive Region
         #endregion
 
