@@ -8,11 +8,9 @@ using _2015_Pre_build_week_project.Team_Code.Utility;
 
 namespace _2015_Pre_build_week_project.Autonomous.Commands
 {
-    public abstract class DriveBaseCommand : AutonCommand
+    public abstract class DriveBaseCommand : CommandBase
     {
-        public double TimeOut { get; set; }
         protected double distance;
-        public Drive drive = BuildWeek2015.drive;
         protected PID movePID;
         protected PID CorrectionPID;
 
@@ -30,7 +28,5 @@ namespace _2015_Pre_build_week_project.Autonomous.Commands
             drive.ResetEncoders();
             drive.Update(0, 0, false);
         }
-
-        public abstract bool Execute();
     }
 }

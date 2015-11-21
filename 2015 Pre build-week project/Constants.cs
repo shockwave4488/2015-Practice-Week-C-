@@ -13,20 +13,21 @@ namespace _2015_Pre_build_week_project
         //Create a new region if you have a new category, try to keep them organized by system.
 
         #region PWM Channels
-        public const int Drive_L1Channel = 0;
-        public const int Drive_L2Channel = 1;
-        public const int Drive_L3Channel = 2;
-        public const int Drive_R1Channel = 3;
-        public const int Drive_R2Channel = 4;
-        public const int Drive_R3Channel = 5;
-        public const int Conveyer_Channel = 6;
+        public const int Drive_L1Channel = 1;
+        public const int Drive_L2Channel = 3;
+        public const int Drive_L3Channel = 2; //Coast
+        public const int Drive_R1Channel = 4;
+        public const int Drive_R2Channel = 6;
+        public const int Drive_R3Channel = 7; //Coast
+        public const int Conveyer_Channel = 0;
+        public const int Intake_Channel = 5;
         #endregion
 
         #region Digital IO Channels
         public const int Drive_LEncoderAChannel = 0;
         public const int Drive_LEncoderBChannel = 1;
-        public const int Drive_REncoderAChannel = 2;
-        public const int Drive_REncoderBChannel = 3;
+        public const int Drive_REncoderAChannel = 8;
+        public const int Drive_REncoderBChannel = 9;
         public const int Conveyer_BeambrakeInChannel = 4;
         public const int Conveyer_BeambrakeOutChannel = 5;
 

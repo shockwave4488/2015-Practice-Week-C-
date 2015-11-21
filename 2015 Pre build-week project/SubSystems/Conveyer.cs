@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WPILib;
+using _2015_Pre_build_week_project.Team_Code.Utility;
 
 namespace _2015_Pre_build_week_project.SubSystems
 {
@@ -12,8 +13,12 @@ namespace _2015_Pre_build_week_project.SubSystems
         private Talon conveyor;
         private DigitalInput beamBrakeOut;
         private DigitalInput beamBrakeIn;
-        public int balls { get; private set; }
+
         private bool InState;
+
+        public int balls { get; private set; }
+        public bool Output { get; set; }
+
         public Conveyer()
         {
             conveyor = new Talon(Constants.Conveyer_Channel);
@@ -23,12 +28,12 @@ namespace _2015_Pre_build_week_project.SubSystems
             InState = false;
 
         }
-        public void Update(bool output)
+        public void Update()
         {
-            if (beamBrakeIn.Get() || beamBrakeOut.Get() || output)
+            if (beamBrakeIn.Get() || beamBrakeOut.Get() || Output)
             {
                 conveyor.Set(Constants.Conveyer_speed);
-                if (output)
+                if (Output)
                 {
                     balls = 0;
                 }
@@ -41,7 +46,7 @@ namespace _2015_Pre_build_week_project.SubSystems
             {
                 balls++;
             }
-}
+        }
 
 
     }

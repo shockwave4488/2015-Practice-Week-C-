@@ -8,12 +8,11 @@ namespace _2015_Pre_build_week_project.Autonomous
         private Queue<AutonCommand> commands;
         private DateTime TimeOut;
 
-        public bool finished { get; private set; }
+        public bool finished => commands.Count == 0;
 
         public AutonScheduler(Queue<AutonCommand> _commands)
         {
             commands = _commands;
-            finished = false;
             TimeOut = DateTime.Now.AddSeconds(commands.Peek().TimeOut);
         }
 
@@ -23,8 +22,6 @@ namespace _2015_Pre_build_week_project.Autonomous
             {
                 commands.Dequeue();
                 TimeOut = DateTime.Now.AddSeconds(commands.Peek().TimeOut);
-                if (commands.Count == 0)
-                    finished = true;
             }
         }
     }

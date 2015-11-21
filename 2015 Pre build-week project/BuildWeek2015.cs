@@ -5,6 +5,8 @@ using System.Text;
 using WPILib;
 using _2015_Pre_build_week_project.SubSystems;
 using _2015_Pre_build_week_project.Team_Code.Drive_Code;
+using _2015_Pre_build_week_project.Autonomous;
+using WPILib.SmartDashboards;
 
 namespace _2015_Pre_build_week_project
 {
@@ -18,6 +20,9 @@ namespace _2015_Pre_build_week_project
         public static Drive drive;
         public static Controllers primary;
         public static Conveyer conveyer;
+        public static Roller roller;
+
+        AutonScheduler scheduler;
 
         private DriveHelper TeleopDrive;
         /**
@@ -29,6 +34,28 @@ namespace _2015_Pre_build_week_project
             drive = new Drive();
             primary = new Controllers();
             TeleopDrive = new DriveHelper(ref drive);
+            roller = new Roller();
+        }
+
+        public override void AutonomousInit()
+        {
+            int routine = (int)SmartDashboard.GetNumber("AutoMode", 4);
+            switch (routine)
+            {
+                case 1:
+                    scheduler = new AutonScheduler(AutonRoutines.Straight);
+                    break;
+                case 2:
+                    scheduler = new AutonScheduler(AutonRoutines.Angled);
+                    break;
+                case 3:
+                    scheduler = new AutonScheduler(AutonRoutines.UTurn);
+                    break;
+                default:
+                    scheduler = new AutonScheduler(AutonRoutines.DoNothing);
+                    break;
+            }
+
         }
 
         /**

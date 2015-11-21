@@ -35,6 +35,7 @@ namespace _2015_Pre_build_week_project.Autonomous.Commands
             else
                 drive.Update(correction - speed, correction + speed);
 
+            base.Execute();
             return finished;
         }
     }

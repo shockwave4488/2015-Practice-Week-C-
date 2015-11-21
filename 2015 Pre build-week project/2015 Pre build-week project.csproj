@@ -68,10 +68,13 @@
   <ItemGroup>
     <Compile Include="Autonomous\AutonCommand.cs" />
     <Compile Include="Autonomous\AutonScheduler.cs" />
+    <Compile Include="Autonomous\Commands\CommandBase.cs" />
     <Compile Include="Autonomous\Commands\DriveBaseCommand.cs" />
     <Compile Include="Autonomous\Commands\DriveForwardCommand.cs" />
     <Compile Include="Autonomous\Commands\DriveTurnCommand.cs" />
+    <Compile Include="Autonomous\Commands\IntakeSetCommand.cs" />
     <Compile Include="Autonomous\Commands\OutputSetCommand.cs" />
+    <Compile Include="Autonomous\AutonRoutines.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Controllers.cs" />
