@@ -42,11 +42,11 @@ namespace _2015_Pre_build_week_project.SubSystems
         {
             double value = 0;
             if (ConveyerFull)
-                value = -0.3;
+                value = 0.3;
             else if (Reverse)
-                value = -1;
-            else if (Intake)
                 value = 1;
+            else if (Intake)
+                value = -1;
 
             motor.Set(value);
         }

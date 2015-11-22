@@ -2,6 +2,7 @@
 using WPILib;
 using _2015_Pre_build_week_project.Team_Code;
 using _2015_Pre_build_week_project.Team_Code.Utility;
+using WPILib.SmartDashboards;
 
 namespace _2015_Pre_build_week_project.SubSystems
 {
@@ -153,7 +154,11 @@ namespace _2015_Pre_build_week_project.SubSystems
             LSpeedFilter.Update(LEncode.GetRate());
             RSpeedFilter.Update(REncode.GetRate());
 
-            Console.WriteLine("Left Encoder: {0}\nRight Encoder: {1}", LEncode.GetDistance(), REncode.GetDistance());
+            //Console.WriteLine("Left Encoder: {0}\nRight Encoder: {1}", LEncode.GetDistance(), REncode.GetDistance());
+            //Reporting values to the Dashboard
+            SmartDashboard.PutBoolean("isHigh", LShift.Get());
+            SmartDashboard.PutNumber("LeftSpeed", LSpeed);
+            SmartDashboard.PutNumber("RightSpeed", RSpeed);
         }
 
         /// <summary>

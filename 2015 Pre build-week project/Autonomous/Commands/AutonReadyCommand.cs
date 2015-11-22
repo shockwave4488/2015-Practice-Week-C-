@@ -6,19 +6,14 @@ using System.Threading.Tasks;
 
 namespace _2015_Pre_build_week_project.Autonomous.Commands
 {
-    public class IntakeSetCommand : CommandBase
+    public class AutonReadyCommand : CommandBase
     {
-        private bool on;
-
-        public IntakeSetCommand(bool _on)
-        {
-            on = _on;
-            TimeOut = 1;
-        }
-
         public override bool Execute()
         {
-            roller.Force(on);
+            roller.Force(false);
+            conveyer.Output = false;
+            drive.Update(0, 0, false);
+
             base.Execute();
             return true;
         }

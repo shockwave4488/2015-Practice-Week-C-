@@ -19,8 +19,8 @@ namespace _2015_Pre_build_week_project
         public const int Drive_R1Channel = 4;
         public const int Drive_R2Channel = 6;
         public const int Drive_R3Channel = 7; //Coast
-        public const int Conveyer_Channel = 0;
-        public const int Intake_Channel = 5;
+        public const int Conveyer_Channel = 5;
+        public const int Intake_Channel = 0;
         #endregion
 
         #region Digital IO Channels
@@ -45,20 +45,20 @@ namespace _2015_Pre_build_week_project
         #region Joystick USB Channels and other control variables
         public const float VibrateVoltLimit = 8;
         public const int ControllerPort = 0;
-        public const int XboxA = 0;
-        public const int XboxB = 1;
-        public const int XboxX = 2;
-        public const int XboxY = 3;
-        public const int XboxLB = 4;
-        public const int XboxRB = 5;
+        public const int XboxA = 1;
+        public const int XboxB = 2;
+        public const int XboxX = 3;
+        public const int XboxY = 4;
+        public const int XboxLB = 5;
+        public const int XboxRB = 6;
         #endregion
 
         #region Drive Variables
         public const double maxChange = 0.2;
         public const double Drive_MaxPowerChange = 0.2;
         public const double Drive_SpeedDeadzone = 0.2;
-        public const double Drive_TurnDeadzone = 0.05;
-        public const double Drive_Sensitivity = 0.75;
+        public const double Drive_TurnDeadzone = 0.2;
+        public const double Drive_Sensitivity = 1;
 
         #region Auto-Shifting
         public const double speedThresh = 9.5;
@@ -71,11 +71,11 @@ namespace _2015_Pre_build_week_project
         public const double Drive_Shifting_LowAccelThreshold = -1;
         #endregion
 
-        public const double Auton_Move_P = 0.05;
+        public const double Auton_Move_P = 0.1;
         public const double Auton_Move_D = 0;
-        public const double Auton_Correction_P = 0.01;
+        public const double Auton_Correction_P = -0.1;
         public const double Auton_Correction_D = 0;
-        public const double Drive_Encoder_ClicksToDistance = Math.PI * 2.0 / 125.0;
+        public const double Drive_Encoder_ClicksToDistance = -Math.PI * 2.0 / 125.0;
         public const double Robot_Width = 28;
         //end Drive Region
         #endregion
@@ -85,7 +85,7 @@ namespace _2015_Pre_build_week_project
         #endregion
 
         #region Conveyor and Roller Variables
-        public const double Conveyer_speed = 0.5;
+        public const double Conveyer_speed = -0.65;
         #endregion
     }
 }

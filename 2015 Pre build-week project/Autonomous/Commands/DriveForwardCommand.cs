@@ -29,10 +29,13 @@ namespace _2015_Pre_build_week_project.Autonomous.Commands
             CorrectionPID.Update(drive.TurnDist);
             movePID.Update(drive.LinearDist);
 
+            double left = speed - correction;
+            double right = speed + correction;
+
             if (finished)
                 drive.Update(0, 0); //Stop the motors if we are done
             else
-                drive.Update(speed - correction, speed + correction);
+                drive.Update(left, right);
 
             base.Execute();
             return finished;

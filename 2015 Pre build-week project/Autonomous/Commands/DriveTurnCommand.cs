@@ -15,7 +15,7 @@ namespace _2015_Pre_build_week_project.Autonomous.Commands
         public DriveTurnCommand(double _degrees, double _timeOut) 
             : base(Utility.ToRadians(_degrees) * Constants.Robot_Width / 2, _timeOut)
         {
-
+            movePID = new PID(Constants.Auton_Move_P, 0, 0, -2, 2);
         }
 
         public override bool Execute()
@@ -25,7 +25,7 @@ namespace _2015_Pre_build_week_project.Autonomous.Commands
             double speed = movePID.Get(drive.TurnDist);
             speed = Math.Abs(speed) < 0.05 ? 0.05 * Math.Sign(speed) : speed;
 
-            double correction = CorrectionPID.Get(drive.TurnDist);
+            double correction = CorrectionPID.Get(drive.LinearDist);
 
             CorrectionPID.Update(drive.TurnDist);
             movePID.Update(drive.LinearDist);
@@ -33,7 +33,7 @@ namespace _2015_Pre_build_week_project.Autonomous.Commands
             if (finished)
                 drive.Update(0, 0); //Stop teh motors if we are done
             else
-                drive.Update(correction - speed, correction + speed);
+                drive.Update(correction + speed, correction - speed);
 
             base.Execute();
             return finished;

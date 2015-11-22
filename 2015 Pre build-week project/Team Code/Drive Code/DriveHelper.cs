@@ -106,7 +106,7 @@ namespace _2015_Pre_build_week_project.Team_Code.Drive_Code
             if (isHighGear)
             {
                 negInertiaScalar = 5.0;
-                sensitivity = Constants.Drive_Sensitivity;
+                sensitivity = Constants.Drive_Sensitivity * 0.75;
             }
             else
             {
@@ -128,7 +128,7 @@ namespace _2015_Pre_build_week_project.Team_Code.Drive_Code
                 sensitivity = Constants.Drive_Sensitivity;
             }
             double negInertiaPower = negInertia * negInertiaScalar;
-            negInertiaAccumulator += negInertiaPower;
+            //negInertiaAccumulator += negInertiaPower;
 
             turn = turn + negInertiaAccumulator;
             if (negInertiaAccumulator > 1)
@@ -157,7 +157,7 @@ namespace _2015_Pre_build_week_project.Team_Code.Drive_Code
                 overPower = 1.0;
                 if (isHighGear)
                 {
-                    sensitivity = 1.0;
+                    sensitivity = 0.75;
                 }
                 else
                 {

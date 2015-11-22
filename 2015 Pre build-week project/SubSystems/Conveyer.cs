@@ -23,16 +23,17 @@ namespace _2015_Pre_build_week_project.SubSystems
         {
             conveyor = new Talon(Constants.Conveyer_Channel);
             beamBrakeIn = new DigitalInput(Constants.Conveyer_BeambrakeInChannel);
-            beamBrakeOut = new DigitalInput(Constants.Conveyer_BeambrakeInChannel);
+            beamBrakeOut = new DigitalInput(Constants.Conveyer_BeambrakeOutChannel);
             balls = 0;
             InState = false;
 
         }
         public void Update()
         {
-            if (beamBrakeIn.Get() || beamBrakeOut.Get() || Output)
+            //Console.WriteLine($"Outer: {beamBrakeOut.Get()} Inner: {beamBrakeIn.Get()}");
+            if (!beamBrakeIn.Get() || !beamBrakeOut.Get() || Output)
             {
-                conveyor.Set(Constants.Conveyer_speed);
+                conveyor.Set(-Constants.Conveyer_speed);
                 if (Output)
                 {
                     balls = 0;
@@ -42,10 +43,12 @@ namespace _2015_Pre_build_week_project.SubSystems
             {
                 conveyor.Set(0);
             }
-            if (InState &&!beamBrakeIn.Get())
+            if (InState && beamBrakeIn.Get())
             {
                 balls++;
             }
+
+            InState = !beamBrakeIn.Get();
         }
 
 

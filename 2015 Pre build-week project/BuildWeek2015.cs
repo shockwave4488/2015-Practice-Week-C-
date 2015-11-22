@@ -25,6 +25,12 @@ namespace _2015_Pre_build_week_project
         AutonScheduler scheduler;
 
         private DriveHelper TeleopDrive;
+
+        static BuildWeek2015()
+        {
+
+        }
+
         /**
          * This function is run when the robot is first started up and should be
          * used for any initialization code.
@@ -33,13 +39,15 @@ namespace _2015_Pre_build_week_project
         {
             drive = new Drive();
             primary = new Controllers();
-            TeleopDrive = new DriveHelper(ref drive);
             roller = new Roller();
+            conveyer = new Conveyer();
+            TeleopDrive = new DriveHelper(ref drive);
         }
 
         public override void AutonomousInit()
         {
             int routine = (int)SmartDashboard.GetNumber("AutoMode", 4);
+            Console.WriteLine($"Running Sequence {routine}");
             switch (routine)
             {
                 case 1:
@@ -71,11 +79,16 @@ namespace _2015_Pre_build_week_project
          */
         public override void TeleopPeriodic()
         {
+            if (null == roller || null == drive || null == conveyer)
+                Console.WriteLine($"Roller: {null == roller} Conveyer: {null == conveyer} Drive: {null == drive}");
             SmartDashboard.PutNumber("Goats", conveyer.balls);
             roller.ConveyerFull = conveyer.balls >= 6;
             roller.Reverse = primary.ReverseIntake;
             roller.Intake = primary.IntakeButton;
             conveyer.Output = primary.ConveyerPowerButton;
+
+            if (conveyer.balls >= 6)
+                roller.Force(false);
 
             TeleopDrive.Drive(primary.GetSpeed, primary.GetTurn, false, primary.ShiftLow, primary.ShiftHigh, false);
             conveyer.Update();
