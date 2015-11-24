@@ -18,7 +18,7 @@ namespace _2015_Pre_build_week_project.SubSystems
         Encoder LEncode, REncode;
         InputFilter LSpeedFilter, RSpeedFilter;
 
-        Gyro gyro;
+        AnalogGyro gyro;
 
         /// <summary>
         /// Speed of the Left Encoder
@@ -83,7 +83,7 @@ namespace _2015_Pre_build_week_project.SubSystems
             LSpeedFilter = new InputFilter(0);
             RSpeedFilter = new InputFilter(0);
 
-            gyro = new Gyro(Constants.Drive_GyroChannel);
+            gyro = new AnalogGyro(Constants.Drive_GyroChannel);
             #endregion
 
             //Invert the Right Side Motors and Encoder
@@ -91,7 +91,7 @@ namespace _2015_Pre_build_week_project.SubSystems
             R2.Inverted = true;
             R3.Inverted = true;
 
-            REncode.ReverseDirection = true;
+            REncode.SetReverseDirection(true);
 
             L1.MaxChange = Constants.Drive_MaxPowerChange;
             L2.MaxChange = Constants.Drive_MaxPowerChange;
