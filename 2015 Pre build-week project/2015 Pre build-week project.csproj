@@ -82,6 +82,7 @@
     <Compile Include="SubSystems\Conveyer.cs" />
     <Compile Include="SubSystems\Drive.cs" />
     <Compile Include="SubSystems\Roller.cs" />
+    <Compile Include="SubSystems\ScissorLift.cs" />
     <Compile Include="Team Code\Drive Code\DriveHelper.cs" />
     <Compile Include="Team Code\RampMotor.cs" />
     <Compile Include="Team Code\Utility\InputFilter.cs" />
